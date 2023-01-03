@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { NavBar } from './navBar';
+import { NavBar } from '../components/navBar';
 import ErrorPage from './ErrorPage';
 
 function UserPage() {
