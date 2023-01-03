@@ -12,14 +12,23 @@ export function Posts() {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
             .then(data => {
-                setPosts(data.filter(post => post.id === activeUser.id))
-                console.log(posts)
+                setPosts(data.filter(post => post.userId === activeUser.id))
     })
-    },[activeUser])
+    }, [activeUser])
     
+    const highlightComment = ({ target }) => {
+        if (target.classList.contains('post')) {
+            target.classList.toggle('selectedPost');
+        }
+    }
 
     return (
-        <></>
+        <div className='postsContainer'>
+            {posts.map(post => <div onClick={highlightComment} key={post.id} className='post'>
+                <h4 className='postH4'>{post.title }</h4>
+                <p className='postP'>{post.body}</p>
+            </div>)}
+        </div>
     );
 }
 
