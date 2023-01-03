@@ -4,6 +4,7 @@ import Landing from "./pages/landing";
 import Login from "./pages/Login";
 import UserPage from "./pages/UserPage";
 import Todos from "./components/Todos";
+import "./style.css";
 
 export const UserContext = createContext();
 
