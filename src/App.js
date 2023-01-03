@@ -3,7 +3,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Landing from "./pages/landing";
 import Login from "./pages/Login";
 import UserPage from "./pages/UserPage";
-import ErrorPage from "./pages/ErrorPage";
+import Todos from "./components/Todos";
 
 export const UserContext = createContext();
 
@@ -13,7 +13,7 @@ function App() {
 
    useEffect(() => {
       if (activeUser) {
-         navigator("/user");
+         navigator(`/user/${activeUser.id}`);
          return;
       }
       navigator("/login");
@@ -32,7 +32,7 @@ function App() {
          <Routes>
             <Route
                path="*"
-               element={<ErrorPage />}
+               element={<Landing />}
             />
             <Route
                path="/"
@@ -43,9 +43,14 @@ function App() {
                element={<Login />}
             />
             <Route
-               path="/user"
+               path="/user/:id"
                element={<UserPage />}
-            />
+            >
+               <Route
+                  path="todos"
+                  element={<Todos />}
+               />
+            </Route>
          </Routes>
       </UserContext.Provider>
    );
