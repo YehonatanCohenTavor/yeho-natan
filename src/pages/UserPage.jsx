@@ -12,11 +12,17 @@ function UserPage() {
          navigator("/login");
       }
    });
+   if (!activeUser) {
+      return;
+   }
 
    return (
       <>
-         <h1>User's personal page</h1>
+         <h1>{activeUser.name}'s personal page</h1>
          <NavBar />
+         <Routes>
+            
+         </Routes>
       </>
    );
 }

@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-
+import React, { useState, useEffect, useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { UserContext } from "../App";
 export function NavBar(props) {
-    return (
-        <>
-            <div>
-                <NavLink to='info'>Personal Information</NavLink>
-            </div>
-            <div>
-                <NavLink to='todos'>To Do List</NavLink>
-            </div>
-            <div>
-                <NavLink to='posts'>Posts</NavLink>
-            </div>
-            <div>
-                <NavLink to='albums'>Albums</NavLink>
-            </div>
-            <div>
-                <NavLink to='login'>Logout</NavLink>
-            </div>
-        </>
-    )
+   const { logOut } = useContext(UserContext);
+   return (
+      <div className="navBar">
+         <NavLink to="info">Personal Information</NavLink>
+         <NavLink to="todos">To Do List</NavLink>
+         <NavLink to="posts">Posts</NavLink>
+         <NavLink to="albums">Albums</NavLink>
+         <NavLink
+            onClick={logOut}
+            to="/login"
+         >
+            Logout
+         </NavLink>
+      </div>
+   );
 }
-
