@@ -1,15 +1,16 @@
-import React, { useState, useEffect, createContext, useRef } from "react";
+import React, { useState, useEffect, createContext, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-export const UserContext = createContext();
+import { UserContext } from "../App";
 
 function Login(props) {
-   const [activeUser, setActiveUser] = useState(null);
+   const { activeUser, logOut, logIn } = useContext(UserContext);
    const [userData, setUserData] = useState();
    const navigator = useNavigate();
    const [values, setValues] = useState({
       usernameVal: "",
       passwordVal: "",
    });
+
    useEffect(() => {
       fetch("https://jsonplaceholder.typicode.com/users")
          .then((response) => response.json())
@@ -39,9 +40,8 @@ function Login(props) {
             user.address.geo.lat.substring(user.address.geo.lat.length - 4, user.address.geo.lat.length) ===
                values.passwordVal
          ) {
-            setActiveUser(user);
+            logIn(user);
             userSet = true;
-            navigator("/user");
             return;
          }
       });
@@ -50,34 +50,27 @@ function Login(props) {
       }
    }
 
-   function handleLogOut() {
-      setActiveUser(null);
-      navigator("/login");
-   }
-   
    return (
-      <UserContext.Provider value={{ activeUser, logOut: handleLogOut }}>
-         <form onSubmit={handleSubmit}>
-            <input
-               onChange={handleChange}
-               value={values.usernameVal}
-               type="text"
-               placeholder="username"
-               name="usernameVal"
-            />
-            <input
-               onChange={handleChange}
-               value={values.passwordVal}
-               type="password"
-               placeholder="password"
-               name="passwordVal"
-            />
-            <input
-               type="submit"
-               value="Log in"
-            />
-         </form>
-      </UserContext.Provider>
+      <form onSubmit={handleSubmit}>
+         <input
+            onChange={handleChange}
+            value={values.usernameVal}
+            type="text"
+            placeholder="username"
+            name="usernameVal"
+         />
+         <input
+            onChange={handleChange}
+            value={values.passwordVal}
+            type="password"
+            placeholder="password"
+            name="passwordVal"
+         />
+         <input
+            type="submit"
+            value="Log in"
+         />
+      </form>
    );
 }
 
