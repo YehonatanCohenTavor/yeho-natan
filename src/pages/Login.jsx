@@ -45,6 +45,7 @@ function Login(props) {
             return;
          }
       });
+
       if (!userSet) {
          alert("The information you have entered is incorrect...\nplease try again");
       }
