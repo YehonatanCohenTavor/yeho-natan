@@ -18,11 +18,11 @@ function UserPage() {
    }
 
    return (
-      <>
-         <h1>{activeUser.name}'s personal page</h1>
+      <div className="userPage">
          <NavBar />
+         <h1>{activeUser.name}'s personal page</h1>
          <Outlet />
-      </>
+      </div>
    );
 }
 

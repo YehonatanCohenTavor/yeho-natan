@@ -52,7 +52,7 @@ function Todos() {
       return <h1>Loading...</h1>;
    }
    return (
-      <div>
+      <div className="todos">
          <select
             value={selectValue}
             onChange={handleChange}
