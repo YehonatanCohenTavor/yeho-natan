@@ -40,7 +40,7 @@ function Todos() {
             setTodos((prev) => prev.sort((a, b) => (a.completed ? -1 : 1)));
             break;
          case "Alphabetical":
-            setTodos((prev) => prev.sort((a, b) => a.title - b.title));
+            setTodos((prev) => prev.sort((a, b) => a.title.localeCompare(b.title)));
             break;
          case "Random":
             setTodos((prev) => prev.sort((a, b) => Math.random() - 0.5));
@@ -58,10 +58,10 @@ function Todos() {
             onChange={handleChange}
          >
             <option value="Date created">Date created</option>
-            <option value="Completed first">Completed first"</option>
+            <option value="Completed first">Completed first</option>
             <option value="Uncompleted first">Uncompleted first</option>
             <option value="Alphabetical">Alphabetical</option>
-            <option value="Random">Random"</option>
+            <option value="Random">Random</option>
          </select>
          {todos.map((todo, index) => (
             <div key={index}>

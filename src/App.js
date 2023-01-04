@@ -7,6 +7,8 @@ import Todos from "./components/Todos";
 import "./style.css";
 import { Posts } from "./components/posts";
 import "../src/App.css";
+import Albums from "./components/Albums";
+import Pictures from "./components/Pictures";
 
 export const UserContext = createContext();
 
@@ -65,6 +67,14 @@ function App() {
                <Route
                   path="posts"
                   element={<Posts />}
+               />
+               <Route
+                  path="albums"
+                  element={<Albums />}
+               />
+               <Route
+                  path="albums/:albumId"
+                  element={<Pictures />}
                />
             </Route>
          </Routes>
