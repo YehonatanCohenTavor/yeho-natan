@@ -1,17 +1,52 @@
+
+.postsContainer{
+  margin-top:20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:10px;
+}
+
+.selectedPost{
+  background-color: rgba(149, 189, 253, 0.309);
+}
+
+.post{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.post:hover{
+  background-color:rgba(149, 189, 253, 0.309) ;
+  font-size:larger;
+}
 .postP{
-    width:40ch;
-  }
-  
-  .selectedPost{
-    background-color: rgba(149, 189, 253, 0.309);
-  }
-  
-  .post{
-    background-color: white;
-    transition: 0.3s;
-  }
-  
-  .post:hover{
-    background-color:rgba(149, 189, 253, 0.309) ;
-    font-size:larger;
-  }
+  width: 50ch;
+  display: inline-block;
+  text-align: start;
+}
+
+.postHeader{
+  width:50ch;
+}
+
+.commentsButton{
+  align-self: center;
+}
+
+.commentsContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.comment{
+  border-bottom: 1px solid black;
+}
+
+.commentP{
+  width:50ch;
+  text-align: start;
+}
