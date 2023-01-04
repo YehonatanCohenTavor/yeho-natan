@@ -16,6 +16,8 @@
   align-items: flex-start;
   flex-direction: column;
   background-color: white;
+  padding:5px;
+  border-radius: 5%;
   transition: 0.3s;
 }
 
@@ -27,6 +29,7 @@
   width: 50ch;
   display: inline-block;
   text-align: start;
+  margin-top:7px;
 }
 
 .postHeader{
@@ -35,15 +38,18 @@
 
 .commentsButton{
   align-self: center;
+  margin-top:7px;
 }
 
 .commentsContainer{
   display: flex;
   flex-direction: column;
+  
 }
 
 .comment{
   border-bottom: 1px solid black;
+  margin:5px;
 }
 
 .commentP{
