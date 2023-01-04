@@ -21,7 +21,9 @@ function UserPage() {
       <div className="userPage">
          <NavBar />
          <h1>{activeUser.name}'s personal page</h1>
-         <Outlet />
+         <div className="userContent">
+            <Outlet />
+         </div>
       </div>
    );
 }
