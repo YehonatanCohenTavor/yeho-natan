@@ -27,11 +27,6 @@ function App() {
       if (localStorage.getItem("activeUser") && !activeUser) {
          let user = JSON.parse(localStorage.getItem("activeUser"));
          setActiveUser(user);
-         navigator(`/user/${user.id}`);
-         return;
-      }
-      if (activeUser) {
-         navigator(`/user/${activeUser.id}`);
          return;
       }
       navigator("/login");

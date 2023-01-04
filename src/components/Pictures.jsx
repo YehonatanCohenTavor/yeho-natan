@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { UserContext } from "../App";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
 
 function Pictures() {
    const [pictures, setPictures] = useState(undefined);
-   const [src, setSrc] = useState(0);
-   const { activeUser } = useContext(UserContext);
    const { albumId } = useParams();
-
+   const [src, setSrc] = useState(0);
    useEffect(() => {
       if (!albumId) return;
       fetch("https://jsonplaceholder.typicode.com/photos")
@@ -16,6 +14,7 @@ function Pictures() {
             setPictures(response.filter((pic) => pic.albumId == albumId));
          });
    }, [albumId]);
+
    if (!pictures) {
       return <h1>Loading...</h1>;
    }
@@ -31,7 +30,7 @@ function Pictures() {
          <button onClick={handlePrevius}>⬅️</button>
          <img
             src={pictures[src].url}
-            alt="Album picture"
+            alt={"Album picture " + src}
          />
          <button onClick={handleNext}>➡️</button>
       </div>

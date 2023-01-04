@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
 
 function Login(props) {
-   const { activeUser, logOut, logIn } = useContext(UserContext);
+   const { activeUser, logIn } = useContext(UserContext);
    const [userData, setUserData] = useState();
    const navigator = useNavigate();
    const [values, setValues] = useState({
