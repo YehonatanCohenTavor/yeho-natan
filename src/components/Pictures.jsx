@@ -29,11 +29,11 @@ function Pictures() {
    return (
       <div className="pictures">
          <button onClick={handlePrevius}>⬅️</button>
-         <button onClick={handleNext}>➡️</button>
          <img
             src={pictures[src].url}
             alt="Album picture"
          />
+         <button onClick={handleNext}>➡️</button>
       </div>
    );
 }

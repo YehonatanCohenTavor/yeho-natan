@@ -53,33 +53,42 @@ function Todos() {
    }
    return (
       <div className="todos">
-         <select
-            value={selectValue}
-            onChange={handleChange}
-         >
-            <option value="Date created">Date created</option>
-            <option value="Completed first">Completed first</option>
-            <option value="Uncompleted first">Uncompleted first</option>
-            <option value="Alphabetical">Alphabetical</option>
-            <option value="Random">Random</option>
-         </select>
-         {todos.map((todo, index) => (
-            <div key={index}>
-               <input
-                  name={todo.id}
-                  type="checkbox"
-                  checked={todo.completed}
-                  onChange={handleCheck}
-                  id={"todo" + todo.id}
-               />
-               <label
-                  htmlFor={"todo" + todo.id}
-                  className={todo.completed ? "completed" : ""}
+         <div className="todosInner">
+            <h1>ToDo list</h1>
+            <h6>sort By:</h6>
+            <select
+               value={selectValue}
+               onChange={handleChange}
+            >
+               <option value="Date created">Date created</option>
+               <option value="Completed first">Completed first</option>
+               <option value="Uncompleted first">Uncompleted first</option>
+               <option value="Alphabetical">Alphabetical</option>
+               <option value="Random">Random</option>
+            </select>
+         </div>
+         <div className="allTodos">
+            {todos.map((todo, index) => (
+               <div
+                  key={index}
+                  className="todoContainer"
                >
-                  {todo.title}
-               </label>
-            </div>
-         ))}
+                  <input
+                     name={todo.id}
+                     type="checkbox"
+                     checked={todo.completed}
+                     onChange={handleCheck}
+                     id={"todo" + todo.id}
+                  />
+                  <label
+                     htmlFor={"todo" + todo.id}
+                     className={todo.completed ? "completed" : ""}
+                  >
+                     {todo.title}
+                  </label>
+               </div>
+            ))}
+         </div>
       </div>
    );
 }

@@ -23,15 +23,15 @@ function Albums() {
    }
 
    return (
-      <div className="albums">
-         {albums.map((album, index) => (
-            <NavLink
-               to={`/user/${activeUser.id}/albums/${index + 1}`}
-               key={index}
-            >
-               {album.title}
-            </NavLink>
-         ))}
+      <div className="albumPage">
+         <h1>Albums:</h1>
+         <ol className="albums">
+            {albums.map((album, index) => (
+               <li key={index}>
+                  <NavLink to={`/user/${activeUser.id}/albums/${index + 1}`}>{album.title}</NavLink>
+               </li>
+            ))}
+         </ol>
       </div>
    );
 }

@@ -9,6 +9,8 @@ import Pictures from "./components/Pictures";
 import Albums from "./components/Albums";
 import "../src/App.css";
 import "./styles/user.css";
+import "./styles/todos.css";
+import "./styles/albums.css";
 
 export const UserContext = createContext();
 
