@@ -10,7 +10,11 @@ function Login(props) {
       usernameVal: "",
       passwordVal: "",
    });
-
+   useEffect(() => {
+      if (activeUser) {
+         navigator(`/user/${activeUser.id}`);
+      }
+   });
    useEffect(() => {
       fetch("https://jsonplaceholder.typicode.com/users")
          .then((response) => response.json())

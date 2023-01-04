@@ -12,6 +12,7 @@ function UserPage() {
          navigator("/login");
       }
    });
+
    if (!activeUser) {
       return;
    }

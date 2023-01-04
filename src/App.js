@@ -6,7 +6,7 @@ import UserPage from "./pages/UserPage";
 import Todos from "./components/Todos";
 import "./style.css";
 import { Posts } from "./components/posts";
-import '../src/App.css';
+import "../src/App.css";
 
 export const UserContext = createContext();
 
@@ -15,6 +15,13 @@ function App() {
    const navigator = useNavigate();
 
    useEffect(() => {
+      //handle after refresh
+      if (localStorage.getItem("activeUser") && !activeUser) {
+         let user = JSON.parse(localStorage.getItem("activeUser"));
+         setActiveUser(user);
+         navigator(`/user/${user.id}`);
+         return;
+      }
       if (activeUser) {
          navigator(`/user/${activeUser.id}`);
          return;
@@ -23,10 +30,12 @@ function App() {
    }, [activeUser]);
 
    function handleLogOut() {
+      localStorage.removeItem("activeUser");
       setActiveUser(undefined);
    }
 
    function handleLogIn(user) {
+      localStorage.setItem("activeUser", JSON.stringify(user));
       setActiveUser(user);
    }
 
@@ -52,10 +61,11 @@ function App() {
                <Route
                   path="todos"
                   element={<Todos />}
-           />
-           <Route
-             path="posts"
-             element={<Posts />} />
+               />
+               <Route
+                  path="posts"
+                  element={<Posts />}
+               />
             </Route>
          </Routes>
       </UserContext.Provider>

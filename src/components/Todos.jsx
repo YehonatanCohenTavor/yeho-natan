@@ -29,6 +29,23 @@ function Todos() {
 
    function handleChange(event) {
       setSelectValue(event.target.value);
+      switch (event.target.value) {
+         case "Date created":
+            setTodos((prev) => prev.sort((a, b) => a.id - b.id));
+            break;
+         case "Uncompleted first":
+            setTodos((prev) => prev.sort((a, b) => (a.completed ? 1 : -1)));
+            break;
+         case "Completed first":
+            setTodos((prev) => prev.sort((a, b) => (a.completed ? -1 : 1)));
+            break;
+         case "Alphabetical":
+            setTodos((prev) => prev.sort((a, b) => a.title - b.title));
+            break;
+         case "Random":
+            setTodos((prev) => prev.sort((a, b) => Math.random() - 0.5));
+            break;
+      }
    }
 
    if (!todos) {
@@ -52,11 +69,11 @@ function Todos() {
                   name={todo.id}
                   type="checkbox"
                   checked={todo.completed}
-                  onClick={handleCheck}
-                  id={todo.id}
+                  onChange={handleCheck}
+                  id={"todo" + todo.id}
                />
                <label
-                  for={todo.id}
+                  htmlFor={"todo" + todo.id}
                   className={todo.completed ? "completed" : ""}
                >
                   {todo.title}
