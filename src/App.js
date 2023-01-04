@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import UserPage from "./pages/UserPage";
 import Todos from "./components/Todos";
 import "./style.css";
-import { Posts } from "./components/posts";
+import { Posts } from "./components/posts/posts";
 import "../src/App.css";
 
 export const UserContext = createContext();
