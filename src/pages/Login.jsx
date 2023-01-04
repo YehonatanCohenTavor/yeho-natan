@@ -40,7 +40,7 @@ function Login(props) {
       userData.forEach((user) => {
          if (
             !userSet &&
-            user.name === values.usernameVal &&
+            user.username === values.usernameVal &&
             user.address.geo.lat.substring(user.address.geo.lat.length - 4, user.address.geo.lat.length) ===
                values.passwordVal
          ) {

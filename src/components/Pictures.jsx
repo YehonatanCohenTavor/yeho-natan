@@ -27,7 +27,7 @@ function Pictures() {
       setSrc((prev) => (prev === 0 ? pictures.length - 1 : prev - 1));
    }
    return (
-      <div>
+      <div className="pictures">
          <button onClick={handlePrevius}>⬅️</button>
          <button onClick={handleNext}>➡️</button>
          <img
