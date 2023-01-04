@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../../App';
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import Comments from './comments';
 
 function Post(props) {
-    const { activeUser } = useContext(UserContext);
     const [comments, setComments] = useState([]);
+    const [commentsDisplay, setCommenstDisplay] = useState(false);
+    
 
     const highlightComment = ({ target }) => {
         if (target.classList.contains('post')) {
@@ -19,12 +20,16 @@ function Post(props) {
             .then(data => setComments(data))
     }, [])
 
-    
+    const toggleComments = () => {
+        setCommenstDisplay(commentsDisplay ? false : true);
+    }
 
     return (
         <div className='post' onClick={highlightComment}>
             <h4 className='postHeader'>{props.postDetails.title}</h4>
             <p className='postP'>{props.postDetails.body}</p>
+            <button onClick={toggleComments}>Comments</button>
+            {commentsDisplay?<Comments comments={comments}/>:''}
         </div>
     );
 }

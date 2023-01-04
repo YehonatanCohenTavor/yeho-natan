@@ -6,7 +6,7 @@ import Post from './singlePost';
 export function Posts() {
 
     const { activeUser } = useContext(UserContext);
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState(null);
 
     useEffect(() => {
         if (!activeUser) return;
@@ -17,6 +17,9 @@ export function Posts() {
     })
     }, [activeUser])
 
+    if (!posts) {
+        return <h1>Loading...</h1>;
+    }
     return (
         <div className='postsContainer'>
             {posts.map((post, index) => <Post
