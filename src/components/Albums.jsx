@@ -24,7 +24,7 @@ function Albums() {
 
    return (
       <div className="albumPage">
-         <h1>Albums:</h1>
+         <h1 className="albumsTitle">Your albums:</h1>
          <ol className="albums">
             {albums.map((album, index) => (
                <li key={index}>

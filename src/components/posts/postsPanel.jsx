@@ -20,7 +20,7 @@ export function Posts() {
    }
    return (
       <div className="postsContainer">
-         <h1>Posts</h1>
+         <h1 className="postTitle">Your posts</h1>
          {posts.map((post, index) => (
             <Post
                key={index}

@@ -4,13 +4,21 @@
     align-items: center;
     justify-content: space-evenly;
     height: 70vh;
-    font-size: 30px;
+    font-size: 22px;
+}
+
+.albumsTitle {
+    font-family: Montserrat;
+    font-size: 45px;
+    margin-bottom: 10px;
 }
 
 .albums a:active,
 .albums a:link,
 .albums a:visited {
-    color: black;
+    color: #3C4048;
+    font-family: righteous;
+    text-decoration: none;
 }
 
 .albums>li {
@@ -24,7 +32,7 @@
 
 .pictures {
     padding: 3%;
-    width: 90vw;
+    width: 85vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,10 +43,16 @@
     align-items: center;
     justify-content: center;
     font-size: 100px;
+    background-color: transparent;
+    border: 0;
 }
 
 .pictures>button>* {
     flex: 1;
+}
+
+.pictures>button:active{
+    box-shadow: 5px 5px 10px black;
 }
 
 .pictures>img {
@@ -46,4 +60,5 @@
     max-width: 400px;
     flex: 1;
     object-fit: contain;
+    border: 5px solid #3C4048;
 }

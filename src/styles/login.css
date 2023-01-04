@@ -31,6 +31,7 @@
 .loginForm>fieldset>legend {
     font-size: 30px;
     font-weight: 900;
+    color: black;
 }
 
 .loginForm>fieldset>input {

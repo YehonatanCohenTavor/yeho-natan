@@ -17,7 +17,7 @@
   flex-direction: column;
   background-color: white;
   padding:5px;
-  border-radius: 5%;
+  border-radius: 10px;
   transition: 0.3s;
 }
 
@@ -55,4 +55,9 @@
 .commentP{
   width:50ch;
   text-align: start;
+}
+
+.postTitle{
+  font-family: Montserrat;
+  font-size: 45px;
 }
