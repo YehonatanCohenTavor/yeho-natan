@@ -1,0 +1,17 @@
+.postP{
+    width:40ch;
+  }
+  
+  .selectedPost{
+    background-color: rgba(149, 189, 253, 0.309);
+  }
+  
+  .post{
+    background-color: white;
+    transition: 0.3s;
+  }
+  
+  .post:hover{
+    background-color:rgba(149, 189, 253, 0.309) ;
+    font-size:larger;
+  }

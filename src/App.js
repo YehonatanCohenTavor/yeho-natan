@@ -11,6 +11,7 @@ import "../src/App.css";
 import "./styles/user.css";
 import "./styles/todos.css";
 import "./styles/albums.css";
+import './styles/posts.css';
 
 export const UserContext = createContext();
 
