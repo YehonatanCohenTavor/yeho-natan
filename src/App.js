@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Landing from "./pages/landing";
+import Info from "./components/info";
 import Login from "./pages/Login";
 import UserPage from "./pages/UserPage";
 import Todos from "./components/Todos";
@@ -11,7 +12,9 @@ import "../src/App.css";
 import "./styles/user.css";
 import "./styles/todos.css";
 import "./styles/albums.css";
-import './styles/posts.css';
+import "./styles/posts.css";
+import "./styles/info.css";
+import "./styles/login.css";
 
 export const UserContext = createContext();
 
@@ -63,6 +66,10 @@ function App() {
                path="/user/:id"
                element={<UserPage />}
             >
+               <Route
+                  index
+                  element={<Info />}
+               />
                <Route
                   path="todos"
                   element={<Todos />}

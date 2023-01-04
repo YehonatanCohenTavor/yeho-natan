@@ -1,0 +1,19 @@
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 70vh;
+}
+
+.infoContainer h1 {
+    font-size: 45px;
+}
+
+.infoContainer li {
+    list-style: none;
+}
+
+.infoContainer>* {
+    font-size: larger;
+}

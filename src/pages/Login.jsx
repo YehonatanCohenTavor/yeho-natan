@@ -56,26 +56,35 @@ function Login(props) {
    }
 
    return (
-      <form onSubmit={handleSubmit}>
-         <input
-            onChange={handleChange}
-            value={values.usernameVal}
-            type="text"
-            placeholder="username"
-            name="usernameVal"
-         />
-         <input
-            onChange={handleChange}
-            value={values.passwordVal}
-            type="password"
-            placeholder="password"
-            name="passwordVal"
-         />
-         <input
-            type="submit"
-            value="Log in"
-         />
-      </form>
+      <div className="loginPage">
+         <form
+            className="loginForm"
+            onSubmit={handleSubmit}
+         >
+            <fieldset>
+               <legend>Log in</legend>
+               <input
+                  onChange={handleChange}
+                  value={values.usernameVal}
+                  type="text"
+                  placeholder="username"
+                  name="usernameVal"
+               />
+               <input
+                  onChange={handleChange}
+                  value={values.passwordVal}
+                  type="password"
+                  placeholder="password"
+                  name="passwordVal"
+               />
+               <input
+                  className="submitBtn"
+                  type="submit"
+                  value="Log in"
+               />
+            </fieldset>
+         </form>
+      </div>
    );
 }
 

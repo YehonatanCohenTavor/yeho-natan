@@ -5,7 +5,7 @@ export function NavBar(props) {
    const { logOut } = useContext(UserContext);
    return (
       <div className="navBar">
-         <NavLink to="info">Personal Information</NavLink>
+         <NavLink to="" end>Personal Information</NavLink>
          <NavLink to="todos">To Do List</NavLink>
          <NavLink to="posts">Posts</NavLink>
          <NavLink to="albums">Albums</NavLink>
