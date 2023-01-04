@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import { NavBar } from "../components/navBar";
+import Info from "../components/info";
 import { UserContext } from "../App";
 
 function UserPage() {
