@@ -1,5 +1,6 @@
 import React,{useContext,useState,useEffect} from 'react';
-import { UserContext } from '../App';
+import { UserContext } from '../../App';
+import Post from './singlePost';
 
 
 export function Posts() {
@@ -15,19 +16,12 @@ export function Posts() {
                 setPosts(data.filter(post => post.userId === activeUser.id))
     })
     }, [activeUser])
-    
-    const highlightComment = ({ target }) => {
-        if (target.classList.contains('post')) {
-            target.classList.toggle('selectedPost');
-        }
-    }
 
     return (
         <div className='postsContainer'>
-            {posts.map(post => <div onClick={highlightComment} key={post.id} className='post'>
-                <h4 className='postH4'>{post.title }</h4>
-                <p className='postP'>{post.body}</p>
-            </div>)}
+            {posts.map((post, index) => <Post
+                key={index}
+                postDetails={post} />)}
         </div>
     );
 }

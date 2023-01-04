@@ -7,8 +7,6 @@ import Todos from "./components/Todos";
 import "./style.css";
 import { Posts } from "./components/posts";
 import "../src/App.css";
-import Albums from "./components/Albums";
-import Pictures from "./components/Pictures";
 
 export const UserContext = createContext();
 
