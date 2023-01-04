@@ -28,11 +28,11 @@ function Post(props) {
         <div className='post' onClick={highlightComment}>
             <h4 className='postHeader'>{props.postDetails.title}</h4>
             <p className='postP'>{props.postDetails.body}</p>
+            {commentsDisplay?<><span className='commentsSpan'>Comments:</span><Comments comments={comments}/></>:''}
             <button
                 className='commentsButton'
                 onClick={toggleComments}>{commentsDisplay ? 'Show less' : 'Comments'}
             </button>
-            {commentsDisplay?<Comments comments={comments}/>:''}
         </div>
     );
 }
