@@ -5,7 +5,9 @@ import Login from "./pages/Login";
 import UserPage from "./pages/UserPage";
 import Todos from "./components/Todos";
 import "./style.css";
-import { Posts } from "./components/posts/posts";
+import { Posts } from "./components/posts/postsPanel";
+import Pictures from "./components/Pictures";
+import Albums from "./components/Albums";
 import "../src/App.css";
 
 export const UserContext = createContext();
