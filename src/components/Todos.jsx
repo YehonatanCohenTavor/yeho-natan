@@ -24,14 +24,25 @@ function Todos() {
 
    function handleCheck(event) {
       const id = event.target.name;
+      const index = todos.findIndex((todo) => todo.id == id);
       //updating localstorage to keep the changes
-      let index = todos.findIndex((todo) => todo.id == id);
       let arr = getAndSetTodosCompleted();
       arr[index] = !todos[index].completed;
       getAndSetTodosCompleted(arr);
+      //posting the change
+      fetch("https://jsonplaceholder.typicode.com/todos", {
+         method: "PUT",
+         body: JSON.stringify({
+            id: id,
+            change: { completed: !todos[index].completed },
+            userId: activeUser.id,
+         }),
+         headers: {
+            "Content-type": "application/json; charset=UTF-8",
+         },
+      });
       setTodos((prev) => {
          prev = JSON.parse(JSON.stringify(prev));
-         let index = prev.findIndex((todo) => todo.id == id);
          if (index === -1) {
             return prev;
          }
