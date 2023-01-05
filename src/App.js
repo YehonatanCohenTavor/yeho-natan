@@ -34,6 +34,7 @@ function App() {
 
    function handleLogOut() {
       localStorage.removeItem("activeUser");
+      sessionStorage.clear();
       setActiveUser(undefined);
    }
 
