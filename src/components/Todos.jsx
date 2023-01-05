@@ -10,12 +10,25 @@ function Todos() {
       fetch("https://jsonplaceholder.typicode.com/todos")
          .then((response) => response.json())
          .then((response) => {
-            setTodos(response.filter((todo) => todo.userId === activeUser.id));
+            //setting the todos from localStorage
+            let arr = getAndSetTodosCompleted();
+            response = response.filter((todo) => todo.userId === activeUser.id);
+            arr.forEach((bool, index) => {
+               if (bool) {
+                  response[index].completed = bool;
+               }
+            });
+            setTodos(response);
          });
    }, [activeUser]);
 
    function handleCheck(event) {
       const id = event.target.name;
+      //updating localstorage to keep the changes
+      let index = todos.findIndex((todo) => todo.id == id);
+      let arr = getAndSetTodosCompleted();
+      arr[index] = !todos[index].completed;
+      getAndSetTodosCompleted(arr);
       setTodos((prev) => {
          prev = JSON.parse(JSON.stringify(prev));
          let index = prev.findIndex((todo) => todo.id == id);
@@ -46,6 +59,19 @@ function Todos() {
             setTodos((prev) => prev.sort((a, b) => Math.random() - 0.5));
             break;
       }
+   }
+
+   function getAndSetTodosCompleted(arr) {
+      if (!localStorage.getItem("todoCompleted")) {
+         localStorage.setItem("todoCompleted", JSON.stringify({}));
+      }
+      let obj = JSON.parse(localStorage.getItem("todoCompleted"));
+      if (arr) {
+         obj[activeUser.id] = arr;
+         localStorage.setItem("todoCompleted", JSON.stringify(obj));
+         return arr;
+      }
+      return obj[activeUser.id] || [];
    }
 
    if (!todos) {
