@@ -1,63 +1,95 @@
+.postTitle {
+  font-family: Montserrat;
+  font-size: 45px;
+}
 
-.postsContainer{
-  margin-top:20px;
+.postsContainer {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:10px;
+  gap: 10px;
 }
 
-.selectedPost{
+.selectedPost {
   background-color: rgba(149, 189, 253, 0.309);
 }
 
-.post{
+.post {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   background-color: white;
-  padding:5px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
   transition: 0.3s;
 }
 
-.post:hover{
-  background-color:rgba(149, 189, 253, 0.309) ;
-  font-size:larger;
+.post:hover {
+  background-color: rgba(149, 189, 253, 0.309);
+  /* font-size:larger; */
 }
-.postP{
+
+.postP {
   width: 50ch;
+  font-size: 20px;
   display: inline-block;
   text-align: start;
-  margin-top:7px;
+  margin-top: 7px;
+  margin-bottom: 8px;
 }
 
-.postHeader{
-  width:50ch;
+.postHeader {
+  width: 50ch;
 }
 
-.commentsButton{
+.commentsButton {
   align-self: center;
-  margin-top:7px;
+  margin-top: 7px;
+  outline: 0;
+  cursor: pointer;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  vertical-align: middle;
+  border: 1px solid;
+  border-radius: 6px;
+  color: #24292e;
+  background-color: #fafbfc;
+  border-color: #1b1f2326;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, border-color;
+
 }
 
-.commentsContainer{
+.commentsButton:hover {
+  background-color: #d4def0;
+  border-color: #1b1f2326;
+  transition-duration: 0.1s;
+}
+
+
+.commentsContainer {
   display: flex;
   flex-direction: column;
-  
+  transition: 0.5s ease-out;
 }
 
-.comment{
+
+.comment {
   border-bottom: 1px solid black;
-  margin:5px;
+  margin: 5px;
 }
 
-.commentP{
-  width:50ch;
+.commentP {
+  width: 50ch;
+  font-size: 16px;
   text-align: start;
 }
 
-.postTitle{
-  font-family: Montserrat;
-  font-size: 45px;
+.commentsSpan {
+  font-weight: bolder;
 }

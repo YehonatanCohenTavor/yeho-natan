@@ -57,6 +57,7 @@ function Todos() {
             break;
          case "Random":
             setTodos((prev) => prev.sort((a, b) => Math.random() - 0.5));
+
             break;
       }
    }
