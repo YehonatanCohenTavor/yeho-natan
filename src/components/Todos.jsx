@@ -14,7 +14,7 @@ function Todos() {
             let arr = getAndSetTodosCompleted();
             response = response.filter((todo) => todo.userId === activeUser.id);
             arr.forEach((bool, index) => {
-               if (bool) {
+               if (bool || bool === false) {
                   response[index].completed = bool;
                }
             });
@@ -49,6 +49,9 @@ function Todos() {
          prev[index].completed = !prev[index].completed;
          return prev;
       });
+      if (selectValue !== "Alphabetical" && selectValue !== "Date created") {
+         handleChange({ target: { value: selectValue } });
+      }
    }
 
    function handleChange(event) {
@@ -86,6 +89,30 @@ function Todos() {
       return obj[activeUser.id] || [];
    }
 
+   function changeAll(bool) {
+      let arr = [];
+      for (let i = 0; i < todos.length; i++) {
+         arr[i] = bool;
+      }
+      getAndSetTodosCompleted(arr);
+      setTodos((prev) => {
+         prev = JSON.parse(JSON.stringify(prev));
+         prev.forEach((todo) => (todo.completed = bool));
+         return prev;
+      });
+      fetch("https://jsonplaceholder.typicode.com/todos", {
+         method: "PUT",
+         body: JSON.stringify({
+            id: "allForUser",
+            change: { completed: bool },
+            userId: activeUser.id,
+         }),
+         headers: {
+            "Content-type": "application/json; charset=UTF-8",
+         },
+      });
+   }
+
    if (!todos) {
       return <h1>Loading...</h1>;
    }
@@ -106,6 +133,10 @@ function Todos() {
             </select>
          </div>
          <div className="allTodos">
+            <div className="todoBtnContainer">
+               <button onClick={() => changeAll(true)}>Select All</button>
+               <button onClick={() => changeAll(false)}>Unselect All</button>
+            </div>
             {todos.map((todo, index) => (
                <div
                   key={index}
